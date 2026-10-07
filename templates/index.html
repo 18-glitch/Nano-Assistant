@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button id="newChatBtn" class="new-chat-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    New Chat
+                </button>
+            </div>
+            <div class="history-section">
+                <div class="history-title">Chat History</div>
+                <ul id="historyList" class="history-list">
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="model-info">
+                    <span class="model-label">Model:</span>
+                    <span class="model-name">Nemotron-3-Nano</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-main">
+            <header class="chat-header">
+                <div class="chat-header-content">
+                    <div class="avatar">N</div>
+                    <div>
+                        <h1 class="chat-title">Nano</h1>
+                        <p class="chat-subtitle">Your AI assistant</p>
+                    </div>
+                </div>
+            </header>
+
+            <div id="chatContainer" class="chat-container">
+                <div id="introScreen" class="intro-screen">
+                    <div class="intro-content">
+                        <div class="intro-avatar">N</div>
+                        <h2>Welcome Rohith!</h2>
+                        <p class="intro-text">I am your Nano AI assistant. How can I help you today?</p>
+                        <div class="suggestions">
+                            <button class="suggestion-chip" data-message="Explain what artificial intelligence is in simple terms">
+                                <span class="chip-icon">💡</span>
+                                Explain AI simply
+                            </button>
+                            <button class="suggestion-chip" data-message="Write a short poem about technology">
+                                <span class="chip-icon">✍️</span>
+                                Write a poem
+                            </button>
+                            <button class="suggestion-chip" data-message="Help me debug a Python error">
+                                <span class="chip-icon">🐍</span>
+                                Help with Python
+                            </button>
+                            <button class="suggestion-chip" data-message="Summarize the key benefits of learning programming">
+                                <span class="chip-icon">📚</span>
+                                Benefits of coding
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="messagesContainer" class="messages-container"></div>
+
+                <div id="typingIndicator" class="typing-indicator hidden">
+                    <div class="typing-avatar">N</div>
+                    <div class="typing-bubble">
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <form id="chatForm" class="chat-form">
+                    <div class="input-wrapper">
+                        <textarea
+                            id="messageInput"
+                            class="message-input"
+                            placeholder="Type your message here..."
+                            rows="1"
+                            autocomplete="off"
+                        ></textarea>
+                        <button type="submit" id="sendBtn" class="send-btn" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="disclaimer">Nano may produce inaccurate information. Consider checking important details.</p>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
